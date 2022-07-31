@@ -1,12 +1,12 @@
 import {Body,Controller,Delete,Get,Param,Post,Put, Query} from '@nestjs/common';
-import { CreatePlantDto } from 'src/dto/plant/create-plant.dto';
+import { CreateStateDto } from 'src/dto/state/create-state.dto';
   // import { CreateTodoDto } from '../dto/create-todo.dto';
   // import { UpdateTodoDto } from '../dto/update-todo.dto';
   // import { TodoService } from 'src/service/todo-service';
 import { StateService } from 'src/service/state-service';
   
-  @Controller('plants')
-  export class PlantController {
+  @Controller('states')
+  export class StateController {
     constructor(private readonly service: StateService) {}
   
     @Get()
@@ -17,8 +17,8 @@ import { StateService } from 'src/service/state-service';
 
     
     @Post()
-    async create(@Body() createPlantDto: CreatePlantDto){
-      return await this.service.create(createPlantDto)
+    async create(@Body() createStateDto: CreateStateDto){
+      return await this.service.create(createStateDto)
     }     
     
   }

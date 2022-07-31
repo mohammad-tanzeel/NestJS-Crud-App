@@ -13,6 +13,9 @@ import { TodoService } from './service/todo-service';
 import { Plant, PlantSchema } from './schemas/plant.schema';
 import { PlantController } from './controller/plant-controller';
 import { PlantService } from './service/plant-service';
+import { StateController } from './controller/state-controller';
+import { StateService } from './service/state-service';
+import { State, StateSchema } from './schemas/state-schema';
 
 @Module({
   imports: [
@@ -22,9 +25,11 @@ import { PlantService } from './service/plant-service';
     }),
     MongooseModule.forFeature([{name: Product.name, schema: ProductSchema}]),
     MongooseModule.forFeature([{ name: Todo.name, schema: TodoSchema }]),
-    MongooseModule.forFeature([{ name: Plant.name, schema: PlantSchema }])],
+    MongooseModule.forFeature([{ name: Plant.name, schema: PlantSchema }]),
+    MongooseModule.forFeature([{ name: State.name, schema: StateSchema }])
+  ],
  
-  controllers: [AppController, TodoController,  PlantController ],
-  providers: [AppService, TodoService,  PlantService],
+  controllers: [AppController, TodoController,  PlantController, StateController ],
+  providers: [AppService, TodoService,  PlantService, StateService],
 })
 export class AppModule {}
